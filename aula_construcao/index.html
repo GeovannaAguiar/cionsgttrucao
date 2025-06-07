@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Construcaos - Materiais de Construção</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+        
+        body {
+            background-color: #f5f5f5;
+        }
+        
+        header {
+            background-color: #ff6b00;
+            color: white;
+            padding: 15px 0;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+        
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            font-size: 24px;
+            font-weight: bold;
+        }
+        
+        nav ul {
+            display: flex;
+            list-style: none;
+        }
+        
+        nav ul li {
+            margin-left: 20px;
+        }
+        
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+        }
+        
+        .search-bar {
+            margin: 20px 0;
+            display: flex;
+        }
+        
+        .search-bar input {
+            flex: 1;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 4px 0 0 4px;
+        }
+        
+        .search-bar button {
+            padding: 10px 15px;
+            background-color: #333;
+            color: white;
+            border: none;
+            border-radius: 0 4px 4px 0;
+            cursor: pointer;
+        }
+        
+        .products {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+            gap: 20px;
+            margin: 30px 0;
+        }
+        
+        .product-card {
+            background-color: white;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            transition: transform 0.3s;
+        }
+        
+        .product-card:hover {
+            transform: translateY(-5px);
+        }
+        
+        .product-image {
+            height: 180px;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-color: #f9f9f9;
+        }
+        
+        .product-image img {
+            max-width: 100%;
+            max-height: 100%;
+            object-fit: contain;
+        }
+        
+        .product-info {
+            padding: 15px;
+        }
+        
+        .product-title {
+            font-size: 16px;
+            margin-bottom: 10px;
+            color: #333;
+        }
+        
+        .product-price {
+            font-size: 20px;
+            font-weight: bold;
+            color: #ff6b00;
+            margin-bottom: 10px;
+        }
+        
+        .installment {
+            font-size: 14px;
+            color: #666;
+            margin-bottom: 15px;
+        }
+        
+        .buy-button {
+            width: 100%;
+            padding: 10px;
+            background-color: #ff6b00;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-weight: bold;
+            transition: background-color 0.3s;
+        }
+        
+        .buy-button:hover {
+            background-color: #e05d00;
+        }
+        
+        footer {
+            background-color: #333;
+            color: white;
+            padding: 30px 0;
+            margin-top: 50px;
+        }
+        
+        .footer-content {
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+        }
+        
+        .footer-section {
+            flex: 1;
+            min-width: 200px;
+            margin-bottom: 20px;
+        }
+        
+        .footer-section h3 {
+            margin-bottom: 15px;
+            font-size: 18px;
+        }
+        
+        .footer-section ul {
+            list-style: none;
+        }
+        
+        .footer-section ul li {
+            margin-bottom: 8px;
+        }
+        
+        .footer-section ul li a {
+            color: #ddd;
+            text-decoration: none;
+        }
+        
+        .copyright {
+            text-align: center;
+            margin-top: 20px;
+            padding-top: 20px;
+            border-top: 1px solid #444;
+            color: #aaa;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container header-content">
+            <div class="logo">Construcaos</div>
+            <nav>
+                <ul>
+                    <li><a href="#">Início</a></li>
+                    <li><a href="#">Categorias</a></li>
+                    <li><a href="#">Ofertas</a></li>
+                    <li><a href="#">Contato</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+    
+    <div class="container">
+        <div class="search-bar">
+            <input type="text" placeholder="Buscar produtos...">
+            <button>Buscar</button>
+        </div>
+        
+        <div class="products">
+            <?php
+            // Array de produtos
+            $produtos = array(
+                array(
+                    "id" => 1,
+                    "nome" => "Cimento CP II 50kg",
+                    "preco" => 32.90,
+                    "imagem" => "https://via.placeholder.com/300x300?text=Cimento+CP+II",
+                    "parcelas" => 3
+                ),
+                array(
+                    "id" => 2,
+                    "nome" => "Tijolo Cerâmico 9x19x29cm",
+                    "preco" => 1.19,
+                    "imagem" => "https://via.placeholder.com/300x300?text=Tijolo+Cerâmico",
+                    "parcelas" => 2
+                ),
+                array(
+                    "id" => 3,
+                    "nome" => "Tubo PVC 100mm 3m",
+                    "preco" => 28.75,
+                    "imagem" => "https://via.placeholder.com/300x300?text=Tubo+PVC",
+                    "parcelas" => 4
+                ),
+                array(
+                    "id" => 4,
+                    "nome" => "Argamassa AC III 20kg",
+                    "preco" => 18.50,
+                    "imagem" => "https://via.placeholder.com/300x300?text=Argamassa+AC+III",
+                    "parcelas" => 2
+                ),
+                array(
+                    "id" => 5,
+                    "nome" => "Telha Cerâmica 44x33cm",
+                    "preco" => 3.99,
+                    "imagem" => "https://via.placeholder.com/300x300?text=Telha+Cerâmica",
+                    "parcelas" => 3
+                )
+            );
+            
+            // Exibir produtos
+            foreach ($produtos as $produto) {
+                $valor_parcela = $produto['preco'] / $produto['parcelas'];
+                echo '
+                <div class="product-card">
+                    <div class="product-image">
+                        <img src="' . $produto['imagem'] . '" alt="' . $produto['nome'] . '">
+                    </div>
+                    <div class="product-info">
+                        <h3 class="product-title">' . $produto['nome'] . '</h3>
+                        <div class="product-price">R$ ' . number_format($produto['preco'], 2, ',', '.') . '</div>
+                        <div class="installment">' . $produto['parcelas'] . 'x de R$ ' . number_format($valor_parcela, 2, ',', '.') . ' sem juros</div>
+                        <button class="buy-button">Comprar</button>
+                    </div>
+                </div>';
+            }
+            ?>
+        </div>
+    </div>
+    
+    <footer>
+        <div class="container footer-content">
+            <div class="footer-section">
+                <h3>Sobre Nós</h3>
+                <p>A Construcaos é a maior loja de materiais de construção do Brasil, com os melhores preços e condições.</p>
+            </div>
+            <div class="footer-section">
+                <h3>Atendimento</h3>
+                <ul>
+                    <li><a href="#">Central de Ajuda</a></li>
+                    <li><a href="#">Política de Troca</a></li>
+                    <li><a href="#">Formas de Pagamento</a></li>
+                    <li><a href="#">Frete e Entrega</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3>Institucional</h3>
+                <ul>
+                    <li><a href="#">Quem Somos</a></li>
+                    <li><a href="#">Nossas Lojas</a></li>
+                    <li><a href="#">Trabalhe Conosco</a></li>
+                    <li><a href="#">Fornecedores</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3>Contato</h3>
+                <ul>
+                    <li>Telefone: (11) 4004-4004</li>
+                    <li>Email: contato@construcaos.com.br</li>
+                    <li>Horário: Seg-Sex 8h-18h</li>
+                </ul>
+            </div>
+        </div>
+        <div class="copyright">
+            &copy; 2025 Construcaos - Todos os direitos reservados
+        </div>
+    </footer>
+</body>
+</html>
+ 
